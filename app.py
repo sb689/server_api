@@ -3,7 +3,7 @@ import joblib
 
 
 app = Flask(__name__)
-model = joblib.load('/Users/sujatabaral/airflow/model-backup/model_rf')
+model = joblib.load('./model_rf')
 
 
 def cal_volume(model, vol_moving_avg, adj_close_rolling_med):
@@ -25,7 +25,7 @@ def is_int(num):
         return False 
     
   
-@app.route('/predict_volume')
+@app.route('/predict')
 def get_volume():
     vol_moving_avg = request.args.get('vol_moving_avg')
     adj_close_rolling_med = request.args.get('adj_close_rolling_med')
@@ -53,7 +53,7 @@ def hello_world():
     return 'Hello, World!wow!!!!!!!!!!!!!!!!!!!!!'
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=False)
+    app.run(port=8000, debug=True)
 
 
 
