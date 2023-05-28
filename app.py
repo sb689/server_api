@@ -30,12 +30,6 @@ def get_volume():
     vol_moving_avg = request.args.get('vol_moving_avg')
     adj_close_rolling_med = request.args.get('adj_close_rolling_med')
     
-    print("vol_moving_avg=====", vol_moving_avg)
-    print("adj_close_rolling_med====", adj_close_rolling_med)
-    print("adj_close_rolling_med type====", type(adj_close_rolling_med))
-    print("adj_close_rolling_med is_int ====", is_int(adj_close_rolling_med))
-    print("adj_close_rolling_med is_float ====", is_float(adj_close_rolling_med))
-
     if not vol_moving_avg or not adj_close_rolling_med:
         return jsonify({'error': 'You need to supply a text'}), 400
     elif not is_int(vol_moving_avg) and not is_float(vol_moving_avg):
