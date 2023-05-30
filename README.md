@@ -7,6 +7,8 @@
 ### Perrformance test
 
 Performance test result for the /predict api.
+
+```
 tool used: JMeter
 Java heap: HEAP="-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m"
 no of threads used: 200 users
@@ -14,14 +16,17 @@ ramp-up period for sending requests: 1 sec
 test perfomred in a MacBookPro with config:
 processor: 2.6 GHz 6 core intel Core i7
 memory: 16 GB 2400 MHz DDR4
+```
 
 After setting 200 requests/ sec in a thread group, the first 90 request was successful. Afterwards, on an average 3 out of 20 requests failed with Socket exception.
 
+```
 total request sent: 4000
 test duration: 46 sec 188 milliseconds
 server throughput: 85 per sec (approx.)
+```
 
-Failure response sample result:
+```Failure response sample result:
 Thread Name:users 1-124
 Sample Start:2023-05-29 19:42:26 CDT
 Load time:101
@@ -40,8 +45,9 @@ Response message:Non HTTP response message: Broken pipe
 HTTPSampleResult fields:
 ContentType:
 DataEncoding: null
+```
 
-Success response sample result:
+```Success response sample result:
 Thread Name:users 1-127
 Sample Start:2023-05-29 19:42:25 CDT
 Load time:1580
@@ -60,3 +66,4 @@ Response message:OK
 HTTPSampleResult fields:
 ContentType: application/json
 DataEncoding: null
+```
